@@ -1,10 +1,11 @@
-# MarkDarkPDF
+# Mark2PDF
 
-A CLI tool to recursively convert a directory of Markdown files into beautiful, dark-mode formatted PDFs.
+A CLI tool to recursively convert a directory of Markdown files into formatted PDFs.
 
 ## Setup
 
-1.  **Prerequisites:** Ensure you have Python 3 installed.
+1.  **Prerequisites:** 
+    - Python 3 
 2.  **Create a Virtual Environment (Recommended):**
     ```bash
     python3 -m venv venv
@@ -14,6 +15,7 @@ A CLI tool to recursively convert a directory of Markdown files into beautiful, 
     ```bash
     pip install -r requirements.txt
     ```
+
     *Note: You may need to install some system dependencies for `weasyprint` (like Pango, GDK-Pixbuf). On Arch/Manjaro/Linux: `sudo pacman -S pango gdk-pixbuf2` or `sudo apt install libpango-1.0-0 libpdk-pixbuf-2.0-0`.*
 
 ## Usage
