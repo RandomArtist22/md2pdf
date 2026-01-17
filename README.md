@@ -1,4 +1,4 @@
-# Mark2PDF
+# Md2PDF
 
 A CLI tool to recursively convert a directory of Markdown files into formatted PDFs.
 
