@@ -1,0 +1,277 @@
+/*
+ * GitHub Dark Theme
+ * ==================
+ * Inspired by GitHub's Dimmed dark theme
+ * Clean, familiar, developer-focused
+ */
+
+@page {
+    size: A4;
+    margin: 18mm;
+    background-color: #0D1117;
+
+    @bottom-center {
+        content: counter(page);
+        color: #484F58;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        font-size: 9pt;
+    }
+}
+
+:root {
+    --bg-primary: #0D1117;
+    --bg-secondary: #161B22;
+    --bg-tertiary: #21262D;
+
+    --text-primary: #C9D1D9;
+    --text-secondary: #8B949E;
+    --text-muted: #484F58;
+
+    --accent-blue: #58A6FF;
+    --accent-green: #3FB950;
+    --accent-purple: #A371F7;
+    --accent-orange: #D29922;
+    --accent-red: #F85149;
+    --accent-pink: #DB61A2;
+
+    --border-color: #30363D;
+    --border-muted: #21262D;
+
+    --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    --font-mono: 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', monospace;
+}
+
+html {
+    background-color: var(--bg-primary);
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: 11pt;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+    line-height: 1.25;
+    page-break-after: avoid;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    color: var(--text-primary);
+}
+
+h1 {
+    font-size: 2em;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid var(--border-color);
+}
+
+h2 {
+    font-size: 1.5em;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid var(--border-color);
+}
+
+h3 {
+    font-size: 1.25em;
+}
+
+h4 {
+    font-size: 1em;
+}
+
+h5 {
+    font-size: 0.875em;
+}
+
+h6 {
+    font-size: 0.85em;
+    color: var(--text-secondary);
+}
+
+/* Links */
+a {
+    color: var(--accent-blue);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Code */
+code {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    padding: 0.2em 0.4em;
+    border-radius: 6px;
+    background-color: rgba(110, 118, 129, 0.4);
+    color: var(--text-primary);
+}
+
+.codehilite {
+    background-color: var(--bg-secondary);
+    border-radius: 6px;
+    margin: 1em 0;
+    padding: 1em;
+    overflow-x: auto;
+}
+
+pre {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    line-height: 1.45;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    color: var(--text-primary);
+}
+
+.codehilite code {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+}
+
+/* Blockquotes */
+blockquote {
+    margin: 1em 0;
+    padding: 0 1em;
+    color: var(--text-secondary);
+    border-left: 4px solid var(--border-color);
+}
+
+blockquote p {
+    margin: 0.5em 0;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1em 0;
+    font-size: 0.95em;
+}
+
+th,
+td {
+    padding: 8px 13px;
+    border: 1px solid var(--border-color);
+}
+
+th {
+    font-weight: 600;
+    background-color: var(--bg-secondary);
+}
+
+tbody tr:nth-child(even) {
+    background-color: var(--bg-secondary);
+}
+
+/* Lists */
+ul,
+ol {
+    padding-left: 2em;
+    margin: 1em 0;
+}
+
+li {
+    margin-bottom: 0.25em;
+}
+
+li+li {
+    margin-top: 0.25em;
+}
+
+/* Task Lists */
+li input[type="checkbox"] {
+    margin-right: 0.5em;
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1em 0;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+/* Horizontal Rules */
+hr {
+    border: none;
+    height: 4px;
+    background-color: var(--border-color);
+    margin: 24px 0;
+    border-radius: 2px;
+}
+
+/* Admonitions */
+.admonition {
+    margin: 1em 0;
+    padding: 0;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.admonition-title {
+    padding: 10px 16px;
+    font-weight: 600;
+    background-color: var(--bg-tertiary);
+}
+
+.admonition p {
+    padding: 10px 16px;
+    margin: 0;
+}
+
+.admonition.note {
+    border-left: 4px solid var(--accent-blue);
+}
+
+.admonition.note .admonition-title {
+    color: var(--accent-blue);
+}
+
+.admonition.warning {
+    border-left: 4px solid var(--accent-orange);
+}
+
+.admonition.warning .admonition-title {
+    color: var(--accent-orange);
+}
+
+.admonition.danger {
+    border-left: 4px solid var(--accent-red);
+}
+
+.admonition.danger .admonition-title {
+    color: var(--accent-red);
+}
+
+.admonition.tip {
+    border-left: 4px solid var(--accent-green);
+}
+
+.admonition.tip .admonition-title {
+    color: var(--accent-green);
+}
+
+/* Print Optimization */
+@media print {
+    body {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+}

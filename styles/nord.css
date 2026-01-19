@@ -1,0 +1,313 @@
+/*
+ * Nord Theme
+ * ==========
+ * Based on the Nord color palette - an arctic, blue-ish color scheme
+ * Clean, elegant, and easy on the eyes
+ * 
+ * https://www.nordtheme.com
+ */
+
+@page {
+    size: A4;
+    margin: 18mm;
+    background-color: #2E3440;
+
+    @bottom-center {
+        content: counter(page);
+        color: #4C566A;
+        font-family: 'Inter', 'Segoe UI', sans-serif;
+        font-size: 9pt;
+    }
+}
+
+:root {
+    /* Polar Night */
+    --nord0: #2E3440;
+    --nord1: #3B4252;
+    --nord2: #434C5E;
+    --nord3: #4C566A;
+
+    /* Snow Storm */
+    --nord4: #D8DEE9;
+    --nord5: #E5E9F0;
+    --nord6: #ECEFF4;
+
+    /* Frost */
+    --nord7: #8FBCBB;
+    --nord8: #88C0D0;
+    --nord9: #81A1C1;
+    --nord10: #5E81AC;
+
+    /* Aurora */
+    --nord11: #BF616A;
+    /* Red */
+    --nord12: #D08770;
+    /* Orange */
+    --nord13: #EBCB8B;
+    /* Yellow */
+    --nord14: #A3BE8C;
+    /* Green */
+    --nord15: #B48EAD;
+    /* Purple */
+
+    --font-sans: 'Inter', 'SF Pro Display', -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+}
+
+html {
+    background-color: var(--nord0);
+}
+
+body {
+    background-color: var(--nord0);
+    color: var(--nord4);
+    font-family: var(--font-sans);
+    font-size: 11pt;
+    line-height: 1.65;
+    margin: 0;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+    line-height: 1.25;
+    page-break-after: avoid;
+    margin-top: 1.4em;
+    margin-bottom: 0.5em;
+}
+
+h1 {
+    font-size: 2.3em;
+    color: var(--nord6);
+    text-align: center;
+    margin-top: 0;
+    padding-bottom: 0.4em;
+    border-bottom: 2px solid var(--nord8);
+}
+
+h2 {
+    font-size: 1.65em;
+    color: var(--nord8);
+    padding-bottom: 0.2em;
+    border-bottom: 1px solid var(--nord3);
+}
+
+h3 {
+    font-size: 1.35em;
+    color: var(--nord9);
+}
+
+h4 {
+    font-size: 1.15em;
+    color: var(--nord7);
+}
+
+h5 {
+    font-size: 1.05em;
+    color: var(--nord14);
+}
+
+h6 {
+    font-size: 1em;
+    color: var(--nord3);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+/* Links */
+a {
+    color: var(--nord8);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--nord7);
+    text-decoration: underline;
+}
+
+/* Code */
+code {
+    font-family: var(--font-mono);
+    font-size: 0.88em;
+    padding: 0.15em 0.4em;
+    border-radius: 4px;
+    background-color: var(--nord1);
+    color: var(--nord15);
+}
+
+.codehilite {
+    background-color: var(--nord1);
+    border-radius: 8px;
+    margin: 1.5em 0;
+    padding: 1em 1.2em;
+    border: 1px solid var(--nord2);
+}
+
+pre {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    color: var(--nord4);
+}
+
+.codehilite code {
+    background-color: transparent;
+    color: inherit;
+    padding: 0;
+}
+
+/* Blockquotes */
+blockquote {
+    margin: 1.5em 0;
+    padding: 0.8em 1.2em;
+    background-color: var(--nord1);
+    border-left: 4px solid var(--nord9);
+    border-radius: 0 6px 6px 0;
+    color: var(--nord5);
+}
+
+blockquote p {
+    margin: 0;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+    font-size: 0.95em;
+    background-color: var(--nord1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th,
+td {
+    padding: 10px 14px;
+    text-align: left;
+}
+
+thead {
+    background-color: var(--nord2);
+}
+
+th {
+    font-weight: 600;
+    color: var(--nord6);
+    border-bottom: 2px solid var(--nord3);
+}
+
+td {
+    border-bottom: 1px solid var(--nord2);
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgba(67, 76, 94, 0.5);
+}
+
+/* Lists */
+ul,
+ol {
+    padding-left: 1.6em;
+    margin: 1em 0;
+}
+
+li {
+    margin-bottom: 0.35em;
+}
+
+li::marker {
+    color: var(--nord8);
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1.5em auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Horizontal Rules */
+hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--nord3), transparent);
+    margin: 2em 0;
+}
+
+/* Admonitions */
+.admonition {
+    margin: 1.5em 0;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: var(--nord1);
+}
+
+.admonition-title {
+    padding: 10px 14px;
+    font-weight: 600;
+}
+
+.admonition p {
+    padding: 12px 14px;
+    margin: 0;
+}
+
+.admonition.note {
+    border-left: 4px solid var(--nord9);
+}
+
+.admonition.note .admonition-title {
+    background-color: rgba(129, 161, 193, 0.2);
+    color: var(--nord9);
+}
+
+.admonition.warning {
+    border-left: 4px solid var(--nord13);
+}
+
+.admonition.warning .admonition-title {
+    background-color: rgba(235, 203, 139, 0.2);
+    color: var(--nord13);
+}
+
+.admonition.danger {
+    border-left: 4px solid var(--nord11);
+}
+
+.admonition.danger .admonition-title {
+    background-color: rgba(191, 97, 106, 0.2);
+    color: var(--nord11);
+}
+
+.admonition.tip {
+    border-left: 4px solid var(--nord14);
+}
+
+.admonition.tip .admonition-title {
+    background-color: rgba(163, 190, 140, 0.2);
+    color: var(--nord14);
+}
+
+/* Print Optimization */
+@media print {
+    body {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+}
