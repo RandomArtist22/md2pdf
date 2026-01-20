@@ -4,7 +4,7 @@ A CLI tool to recursively convert a directory of Markdown files into beautifully
 
 ## Features
 
-- 🎨 **Multiple Themes** - Choose from 5 professionally designed themes
+- 🎨 **Multiple Themes** - Choose from 5 themes
 - 📁 **Recursive Conversion** - Processes entire directory trees
 - 🖍️ **Syntax Highlighting** - Full code block highlighting with Pygments
 - 📝 **Rich Markdown Support** - Tables, admonitions, footnotes, TOC, and more
