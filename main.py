@@ -5,10 +5,12 @@ import markdown
 from weasyprint import HTML, CSS
 from pathlib import Path
 from rich.console import Console
-from rich.progress import track
+from rich.progress import Progress, TextColumn, BarColumn, TaskProgressColumn
 from rich.panel import Panel
 from rich.table import Table
 from pygments.formatters import HtmlFormatter
+from multiprocessing import Pool
+from functools import wraps
 
 app = typer.Typer(
     help="Convert Markdown files to beautifully styled PDFs",
@@ -49,6 +51,13 @@ def get_stylesheet_path(theme: Theme) -> Path:
     """Get the stylesheet path for the given theme."""
     return STYLES_DIR / f"{theme.value}.css"
 
+def starwrapper(func):
+    @wraps(func)
+    def wrapper(args):
+        return func(*args)
+    return wrapper
+
+@starwrapper
 def convert_md_to_pdf(input_file: Path, output_file: Path, theme: Theme):
     """
     Converts a single markdown file to PDF using the specified theme.
@@ -114,6 +123,8 @@ def convert_md_to_pdf(input_file: Path, output_file: Path, theme: Theme):
     except Exception as e:
         console.print(f"[bold red]Error converting {input_file.name}:[/bold red] {e}")
 
+    return None
+
 
 @app.command("convert")
 def convert(
@@ -156,15 +167,30 @@ def convert(
         border_style="blue"
     ))
 
-    # Processing the files 
-    for md_file in track(md_files, description="Converting..."):
+    # Processing the files
+    md_file_args = []
+
+    for md_file in md_files:
         rel_path = md_file.relative_to(input_dir)
         if rel_path.stem:
             out_file_path = output_dir / rel_path.with_suffix('.pdf')
         else:
             out_file_path = output_dir / Path(input_dir.name).with_suffix('.pdf')
         out_file_path.parent.mkdir(parents=True, exist_ok=True)
-        convert_md_to_pdf(md_file, out_file_path, theme)
+        md_file_args.append((md_file, out_file_path, theme))
+    
+    with Progress(
+            TextColumn("[progress.description]{task.description}"),
+            BarColumn(),
+            TaskProgressColumn(),
+            transient=True,
+            ) as progress:
+        
+        with Pool(4) as pool:
+            main_task = progress.add_task(description="Converting...", total=len(md_file_args))
+        
+            for result in pool.imap_unordered(convert_md_to_pdf, md_file_args):
+                progress.update(main_task, advance=1)    
 
     console.print(f"\n[bold green]✓ Done![/bold green] PDFs saved to: [cyan]{output_dir}[/cyan]")
 

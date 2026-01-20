@@ -2,3 +2,4 @@ md2pdf_wrapper.sh
 venv/
 .env
 dev_goals.md
+tests/
