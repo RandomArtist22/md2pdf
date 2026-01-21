@@ -26,20 +26,20 @@ STYLES_DIR = Path(__file__).parent / "styles"
 
 # Available themes
 class Theme(str, Enum):
-    professional_dark = "professional_dark"
-    dracula = "dracula"
-    minimal_light = "minimal_light"
-    nord = "nord"
     github_dark = "github_dark"
+    dracula = "dracula"
+    nord = "nord"
+    minimal_light = "minimal_light"
+    professional_dark = "professional_dark"
 
 
 # Theme descriptions for help
 THEME_DESCRIPTIONS = {
-    Theme.professional_dark: "Sophisticated dark theme with blue accents (default)",
-    Theme.dracula: "Popular Dracula color scheme with vibrant neon accents",
-    Theme.minimal_light: "Clean, professional light theme for formal documents",
-    Theme.nord: "Arctic-inspired blue-ish color scheme, easy on the eyes",
-    Theme.github_dark: "Familiar GitHub-inspired dark theme for developers",
+    Theme.github_dark: "GitHub-inspired dark theme (default)",
+    Theme.dracula: "Dracula color scheme with neon accents",
+    Theme.nord: "Arctic-inspired, easy on the eyes",
+    Theme.minimal_light: "Clean light theme for printing",
+    Theme.professional_dark: "Sophisticated dark with blue accents",
 }
 
 # Map themes to Pygments styles for syntax highlighting
@@ -147,7 +147,7 @@ def convert(
     ),
     output_dir: Path = typer.Argument(..., help="Directory to save the generated PDFs"),
     theme: Theme = typer.Option(
-        Theme.professional_dark, "--theme", "-t", help="CSS theme to use for styling"
+        Theme.github_dark, "--theme", "-t", help="CSS theme to use for styling"
     ),
 ) -> None:
     """
