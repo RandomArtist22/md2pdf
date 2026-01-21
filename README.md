@@ -1,82 +1,242 @@
-# Md2PDF
+<div align="center">
 
-A CLI tool to recursively convert a directory of Markdown files into beautifully styled PDFs.
+# 📄 md2pdf
 
-## Features
+**Transform your Markdown into beautifully styled PDFs**
 
-- 🎨 **Multiple Themes** - Choose from 5 themes
-- 📁 **Recursive Conversion** - Processes entire directory trees
-- 🖍️ **Syntax Highlighting** - Full code block highlighting with Pygments
-- 📝 **Rich Markdown Support** - Tables, admonitions, footnotes, TOC, and more
+[![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-## Setup
+[Features](#-features) •
+[Installation](#-installation) •
+[Usage](#-usage) •
+[Themes](#-themes) •
+[Configuration](#%EF%B8%8F-configuration)
 
-1.  **Prerequisites:** 
-    - Python 3 
-2.  **Create a Virtual Environment (Recommended):**
-    ```bash
-    python3 -m venv venv
-    source venv/bin/activate
-    ```
-3.  **Install Dependencies:**
-    ```bash
-    pip install -r requirements.txt
-    ```
+</div>
 
-    *Note: You may need to install some system dependencies for `weasyprint` (like Pango, GDK-Pixbuf). On Arch/Manjaro/Linux: `sudo pacman -S pango gdk-pixbuf2` or on Debian/Ubuntu: `sudo apt install libpango-1.0-0 libgdk-pixbuf-2.0-0`.*
+---
 
-## Usage
+## ✨ Features
 
-### Basic Conversion
+- 🎨 **5 Themes** — Professional dark, Dracula, Nord, GitHub Dark, and Minimal Light
+- 📁 **Batch Processing** — Convert entire directory trees recursively
+- 🖍️ **Syntax Highlighting** — Full code block highlighting powered by Pygments
+- 📝 **Rich Markdown** — Tables, admonitions, footnotes, TOC, abbreviations, and more
+- ⚡ **Parallel Processing** — Multi-threaded conversion for speed
+- 🎯 **Single File Mode** — Convert individual files or entire directories
+
+---
+
+## 📦 Installation
+
+### Prerequisites
+
+- **Python 3.12+**
+- **System dependencies** for WeasyPrint:
+
+  ```bash
+  # Arch / Manjaro
+  sudo pacman -S pango gdk-pixbuf2
+
+  # Debian / Ubuntu
+  sudo apt install libpango-1.0-0 libgdk-pixbuf-2.0-0
+
+  # macOS
+  brew install pango gdk-pixbuf
+  ```
+
+### Install with uv (Recommended)
 
 ```bash
-python main.py convert /path/to/markdown/files /path/to/output/pdfs
+# Clone the repository
+git clone https://github.com/yourusername/md2pdf.git
+cd md2pdf
+
+# Install with uv
+uv sync
 ```
 
-### With Theme Selection
+### Install with pip
 
 ```bash
-python main.py convert /path/to/input /path/to/output --theme professional_dark
+# Clone and install
+git clone https://github.com/yourusername/md2pdf.git
+cd md2pdf
+pip install -e .
 ```
 
-### List Available Themes
+---
+
+## 🚀 Usage
+
+### Quick Start
 
 ```bash
-python main.py themes
+# Convert a single file
+md2pdf convert README.md ./output
+
+# Convert an entire directory
+md2pdf convert ./docs ./pdf-output
+
+# Use a specific theme
+md2pdf convert ./docs ./output --theme dracula
 ```
 
-## Available Themes
+### Commands
+
+```
+Usage: md2pdf [OPTIONS] COMMAND [ARGS]...
+
+Commands:
+  convert   Convert Markdown files to PDFs
+  themes    List all available themes
+```
+
+### Convert Command
+
+```
+Usage: md2pdf convert [OPTIONS] INPUT_PATH OUTPUT_DIR
+
+Arguments:
+  INPUT_PATH  Markdown file or directory to convert  [required]
+  OUTPUT_DIR  Directory to save the generated PDFs   [required]
+
+Options:
+  -t, --theme [github_dark|dracula|nord|minimal_light|professional_dark]
+              CSS theme to use for styling  [default: github_dark]
+  --help      Show this message and exit
+```
+
+### Examples
+
+```bash
+# Convert all markdown files in a directory
+md2pdf convert ~/Documents/notes ~/Documents/pdfs
+
+# Convert with the Nord theme
+md2pdf convert ~/notes ~/pdfs -t nord
+
+# Convert a single file with Dracula theme
+md2pdf convert ./README.md ./output --theme dracula
+
+# List available themes
+md2pdf themes
+```
+
+---
+
+## 🎨 Themes
 
 | Theme | Description |
-|-------|-------------|
-| `professional_dark` | Sophisticated dark theme with blue accents (default) |
-| `dracula` | Popular Dracula color scheme with vibrant neon accents |
-| `minimal_light` | Clean, professional light theme for formal documents |
-| `nord` | Arctic-inspired blue-ish color scheme, easy on the eyes |
-| `github_dark` | Familiar GitHub-inspired dark theme for developers |
+|:------|:------------|
+| `github_dark` | GitHub-inspired dark theme **(default)** |
+| `dracula` | Dracula color scheme with neon accents |
+| `nord` | Arctic-inspired, easy on the eyes |
+| `minimal_light` | Clean light theme for printing |
+| `professional_dark` | Sophisticated dark with blue accents |
 
-## Examples
-
-### Using the Professional Dark Theme (default)
+Preview themes:
 
 ```bash
-python main.py convert ~/Documents/Notes ~/Documents/PDF_Notes
+md2pdf themes
 ```
 
-### Using the Nord Theme
+```
+┏━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Theme Name        ┃ Description                          ┃
+┡━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ github_dark       │ GitHub-inspired dark theme (default) │
+│ dracula           │ Dracula color scheme with neon       │
+│ nord              │ Arctic-inspired, easy on the eyes    │
+│ minimal_light     │ Clean light theme for printing       │
+│ professional_dark │ Sophisticated dark with blue accents │
+└───────────────────┴──────────────────────────────────────┘
+```
+
+---
+
+## ⚙️ Configuration
+
+### Customizing Themes
+
+All theme stylesheets are in the `styles/` directory. To create a custom theme:
+
+1. **Create a new CSS file:**
+   ```bash
+   cp styles/professional_dark.css styles/my_theme.css
+   ```
+
+2. **Edit the theme in `main.py`:**
+   ```python
+   class Theme(str, Enum):
+       professional_dark = "professional_dark"
+       dracula = "dracula"
+       minimal_light = "minimal_light"
+       nord = "nord"
+       github_dark = "github_dark"
+       my_theme = "my_theme"  # Add your theme
+   ```
+
+3. **Add a description:**
+   ```python
+   THEME_DESCRIPTIONS = {
+       # ...existing themes...
+       Theme.my_theme: "My custom theme description",
+   }
+   ```
+
+### Markdown Extensions
+
+md2pdf supports these Markdown extensions out of the box:
+
+| Extension | Description |
+|:----------|:------------|
+| `tables` | GitHub-style tables |
+| `fenced_code` | Triple-backtick code blocks |
+| `codehilite` | Syntax highlighting |
+| `toc` | Table of contents with `[TOC]` |
+| `admonition` | Note/warning/tip blocks |
+| `footnotes` | Footnote references |
+| `attr_list` | HTML attributes on elements |
+| `def_list` | Definition lists |
+| `abbr` | Abbreviations |
+| `md_in_html` | Markdown inside HTML blocks |
+
+---
+
+## 🛠️ Development
 
 ```bash
-python main.py convert ~/Documents/Notes ~/Documents/PDF_Notes -t nord
+# Clone the repo
+git clone https://github.com/yourusername/md2pdf.git
+cd md2pdf
+
+# Install dev dependencies
+uv sync --group dev
+
+# Run linters
+uv run black main.py
+uv run isort main.py
+uv run mypy main.py
+
+# Run pre-commit hooks
+uv run pre-commit run --all-files
 ```
 
-### Using the Light Theme for Printing
+---
 
-```bash
-python main.py convert ~/Documents/Notes ~/Documents/PDF_Notes --theme minimal_light
-```
+## 📄 License
 
-The tool will mirror your directory structure in the output folder.
+MIT License — see [LICENSE](LICENSE) for details.
 
-## Customizing Themes
+---
 
-All theme stylesheets are located in the `styles/` directory. You can modify existing themes or create new ones by adding a new `.css` file and registering it in `main.py`.
+<div align="center">
+
+**Made with ❤️ and Python**
+
+[⬆ Back to top](#-md2pdf)
+
+</div>
