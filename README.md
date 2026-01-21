@@ -1,6 +1,6 @@
 <div align="center">
 
-# 📄 md2pdf
+# 📄 markd2pdf
 
 **Transform your Markdown into beautifully styled PDFs**
 
@@ -50,20 +50,20 @@
 ### Install from PyPI
 
 ```bash
-pip install md2pdf-cli
+pip install markd2pdf
 ```
 
 Or with [uv](https://docs.astral.sh/uv/):
 
 ```bash
-uv tool install md2pdf-cli
+uv tool install markd2pdf
 ```
 
 ### Install from Source (Development)
 
 ```bash
-git clone https://github.com/ramcharan/md2pdf.git
-cd md2pdf
+git clone https://github.com/ramcharan/markd2pdf.git
+cd markd2pdf
 uv sync  # or: pip install -e .
 ```
 
@@ -75,19 +75,19 @@ uv sync  # or: pip install -e .
 
 ```bash
 # Convert a single file
-md2pdf convert README.md ./output
+markd2pdf convert README.md ./output
 
 # Convert an entire directory
-md2pdf convert ./docs ./pdf-output
+markd2pdf convert ./docs ./pdf-output
 
 # Use a specific theme
-md2pdf convert ./docs ./output --theme dracula
+markd2pdf convert ./docs ./output --theme dracula
 ```
 
 ### Commands
 
 ```
-Usage: md2pdf [OPTIONS] COMMAND [ARGS]...
+Usage: markd2pdf [OPTIONS] COMMAND [ARGS]...
 
 Commands:
   convert   Convert Markdown files to PDFs
@@ -97,7 +97,7 @@ Commands:
 ### Convert Command
 
 ```
-Usage: md2pdf convert [OPTIONS] INPUT_PATH OUTPUT_DIR
+Usage: markd2pdf convert [OPTIONS] INPUT_PATH OUTPUT_DIR
 
 Arguments:
   INPUT_PATH  Markdown file or directory to convert  [required]
@@ -113,16 +113,16 @@ Options:
 
 ```bash
 # Convert all markdown files in a directory
-md2pdf convert ~/Documents/notes ~/Documents/pdfs
+markd2pdf convert ~/Documents/notes ~/Documents/pdfs
 
 # Convert with the Nord theme
-md2pdf convert ~/notes ~/pdfs -t nord
+markd2pdf convert ~/notes ~/pdfs -t nord
 
 # Convert a single file with Dracula theme
-md2pdf convert ./README.md ./output --theme dracula
+markd2pdf convert ./README.md ./output --theme dracula
 
 # List available themes
-md2pdf themes
+markd2pdf themes
 ```
 
 ---
@@ -140,7 +140,7 @@ md2pdf themes
 Preview themes:
 
 ```bash
-md2pdf themes
+markd2pdf themes
 ```
 
 ```
@@ -189,7 +189,7 @@ All theme stylesheets are in the `styles/` directory. To create a custom theme:
 
 ### Markdown Extensions
 
-md2pdf supports these Markdown extensions out of the box:
+markd2pdf supports these Markdown extensions out of the box:
 
 | Extension | Description |
 |:----------|:------------|
@@ -210,8 +210,8 @@ md2pdf supports these Markdown extensions out of the box:
 
 ```bash
 # Clone the repo
-git clone https://github.com/yourusername/md2pdf.git
-cd md2pdf
+git clone https://github.com/yourusername/markd2pdf.git
+cd markd2pdf
 
 # Install dev dependencies
 uv sync --group dev
@@ -237,6 +237,6 @@ MIT License — see [LICENSE](LICENSE) for details.
 
 **Made with ❤️ and Python**
 
-[⬆ Back to top](#-md2pdf)
+[⬆ Back to top](#-markd2pdf)
 
 </div>

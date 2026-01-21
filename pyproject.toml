@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "md2pdf-cli"
+name = "markd2pdf"
 version = "0.1.0"
 description = "Convert Markdown files to beautifully styled PDFs"
 readme = "README.md"
@@ -43,12 +43,12 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/ramcharan/md2pdf"
-Repository = "https://github.com/ramcharan/md2pdf"
-Issues = "https://github.com/ramcharan/md2pdf/issues"
+Homepage = "https://github.com/ramcharan/markd2pdf"
+Repository = "https://github.com/ramcharan/markd2pdf"
+Issues = "https://github.com/ramcharan/markd2pdf/issues"
 
 [project.scripts]
-md2pdf = "md2pdf.cli:app"
+markd2pdf = "markd2pdf.cli:app"
 
 [dependency-groups]
 dev = [
@@ -62,11 +62,11 @@ dev = [
 ]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/md2pdf"]
+packages = ["src/markd2pdf"]
 
 [tool.hatch.build.targets.sdist]
 include = [
-    "src/md2pdf",
+    "src/markd2pdf",
     "README.md",
     "LICENSE",
 ]
