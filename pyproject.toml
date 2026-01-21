@@ -1,0 +1,39 @@
+[project]
+name = "md2pdf-tool"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "markdown>=3.10",
+    "pygments>=2.19.2",
+    "rich>=14.2.0",
+    "typer>=0.21.1",
+    "weasyprint>=68.0",
+]
+
+[dependency-groups]
+dev = [
+    "black>=26.1.0",
+    "isort>=7.0.0",
+    "mypy>=1.19.1",
+    "pre-commit>=4.5.1",
+    "types-markdown>=3.10.0.20251106",
+]
+
+[tool.black]
+line-length = 88
+target-version = ['py312']
+
+[tool.isort]
+profile = "black"
+line_length = 88
+multi_line_output = 3
+
+[tool.mypy]
+python_version = "3.12"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true  
+ignore_missing_imports = true
+
+[project.scripts]
+md2pdf = "main:app"

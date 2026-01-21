@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: md2pdf-tool
+Version: 0.1.0
+Requires-Python: >=3.12
+Requires-Dist: markdown>=3.10
+Requires-Dist: pygments>=2.19.2
+Requires-Dist: rich>=14.2.0
+Requires-Dist: typer>=0.21.1
+Requires-Dist: weasyprint>=68.0

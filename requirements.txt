@@ -1,5 +1,0 @@
-markdown
-weasyprint
-typer
-pygments
-rich
