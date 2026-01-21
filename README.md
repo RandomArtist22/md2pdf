@@ -47,24 +47,24 @@
   brew install pango gdk-pixbuf
   ```
 
-### Install with uv (Recommended)
+### Install from PyPI
 
 ```bash
-# Clone the repository
-git clone https://github.com/yourusername/md2pdf.git
-cd md2pdf
-
-# Install with uv
-uv sync
+pip install md2pdf-cli
 ```
 
-### Install with pip
+Or with [uv](https://docs.astral.sh/uv/):
 
 ```bash
-# Clone and install
-git clone https://github.com/yourusername/md2pdf.git
+uv tool install md2pdf-cli
+```
+
+### Install from Source (Development)
+
+```bash
+git clone https://github.com/ramcharan/md2pdf.git
 cd md2pdf
-pip install -e .
+uv sync  # or: pip install -e .
 ```
 
 ---
